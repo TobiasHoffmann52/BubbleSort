@@ -1,24 +1,25 @@
-void setup(){
-  int[] list = { 1,2,6,3,8,1,2,9,7,6};
+void setup() {
+  int[] list = { 1, 2, 6, 3, 8, 1, 2, 9, 7, 6};
   printList(list);
   bubbleSort(list);
   printList(list);
 }
 
-void bubbleSort(int[] list){
-//1. Hvis list[i] > list[i+1], byt rundt
-//2. Sæt i=i+1 og gentag 1 - indtil i+1>= liste længden.
-//3. Hvis antallet af "swaps" > 0 gentag ellers Stop! 
-
-for(int i = 0; i >= list.length;i++){
-  int antalSwaps = 0;
-  if(list[i] > list[i+1]){
-  swap(list,i,i+1);
-  antalSwaps++;
+void bubbleSort(int[] list) {
+  //1. Hvis list[i] > list[i+1], byt rundt
+  //2. Sæt i=i+1 og gentag 1 - indtil i+1>= liste længden.
+  //3. Hvis antallet af "swaps" > 0 gentag ellers Stop! 
+  int antalSwaps = 1;
+  while (antalSwaps>0) {
+    antalSwaps = 0;
+    for (int i = 0; i < list.length-1; i++) {
+      if (list[i] > list[i+1]) {
+        swap(list, i, i+1);
+        antalSwaps++;
+      }
+    }
   }
 }
-}
-
 
 void swap(int[] list, int i1, int i2) {
   //Denne funktion modtager arrayet "liste", index i1 og index i2. 
